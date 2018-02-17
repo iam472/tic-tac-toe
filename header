@@ -1,2 +1,63 @@
-#include <iostream>
+// Project Made by Victor and Elliot
+//main.cpp
+#include<iostream>
+//Include header files
+#include "doctor.h"
+#include "patient.h"
+#include "date.h"
+#include "bill.h"
 using namespace std;
+int main()
+{
+   //create an object of class
+   doctorType doctor("James", "Daniel", "Urologist");
+   cout << "**********************************" << endl;
+   cout << "**        Doctor Details        **" << endl;
+   cout << "**********************************" << endl;
+   cout << "** Dr. Name: " << doctor.getfirstName() << " " << doctor.getlastName() << endl;
+   cout << "** Specialty: " << doctor.getspecial() << endl;
+   cout << "**********************************" << endl;
+   cout << endl;
+  
+   //Create three dateType objects for date of birth,
+   //admit date and dicahrage date
+   dateType DOB(10,12,1977);
+   dateType DOA(12,1,2017);
+   dateType DOD(12,19,2017);
+  
+   patientType patient("Ming","Chiu", 34589, 40, DOB, DOA, DOD, doctor);
+   cout << "**********************************" << endl;
+   cout << "**       Patient Details        **" << endl;
+   cout << "**********************************" << endl;
+   cout << "** Patient Name: " << patient.getfirstName() << " " << patient.getlastName() << endl;
+   cout << "** Patient ID: " << patient.getPID() << endl;
+   cout << "** Age: " << patient.getAge() << endl;
+   cout << "** Date Of Birth: ";
+   patient.getDOB().printDate();
+   cout << endl;
+   cout << "**********************************" << endl;
+   cout << endl;
+   cout << "**********************************" << endl;
+   cout << "**        Visit Details         **" << endl;
+   cout << "**********************************" << endl;
+   cout << "** Date of Admission: ";
+   patient.getDOA().printDate();
+   cout << "\n** Date of Discharge: ";
+   patient.getDOD().printDate();
+   cout << "\n** Doctor Name: "<< patient.getDocN() << endl;
+   cout << "**********************************" << endl;
+   cout << endl;
+   //create an instance of billType
+   billType patientBill(12456,1200,1700,950);
+   cout << "**********************************" << endl;
+   cout << "**       Billing Details        **" << endl;
+   cout << "**********************************" << endl;
+   cout << "** Medicine Cost: " << patientBill.getmedicinec() << endl;
+   cout << "** Doctor Fee: " << patientBill.getdoctorc() << endl;
+   cout << "** Room Charges: " << patientBill.getroomc() << endl;
+   cout << "** Total pay: " << patientBill.getmedicinec() + patientBill.getdoctorc() + patientBill.getroomc() << endl;
+   cout << "**********************************" << endl;
+  
+   system("pause");
+   return 0;
+}
